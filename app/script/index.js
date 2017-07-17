@@ -8,6 +8,7 @@ class Index extends Component {
 		super()
 		this.setCurrent = this.setCurrent.bind(this);
 		this.state = {
+			content:'',
 			curLi: 0,
 			menu: []
 		}
@@ -20,7 +21,8 @@ class Index extends Component {
 	setCurrent(obj) {
 		if (obj) {
 			this.setState({
-				curLi: obj.index
+				curLi: obj.index,
+				content:obj.callback()
 			})
 		}
 	}
@@ -33,7 +35,8 @@ class Index extends Component {
 						<span className="u-sec-btn"></span>
 					</div>
 				</div>
-				<div id="m_content" className="m-content"></div>
+				<div id="m_content" className="m-c-content">{this.state.content}</div>
+				<div className="ft-space"></div>
 				<Menu menu={this.state.menu} current={this.state.curLi} setCurrent={this.setCurrent}/>
 			</div>
 		)

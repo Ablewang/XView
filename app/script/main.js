@@ -2,19 +2,23 @@ import React from 'react';
 import {
 	render
 } from 'react-dom';
-import Index from './Index'
+import Index from './Index';
+import Task from './Task';
 let menu = [{
 	index: 1,
 	text: '任务',
-	class: 'work'
+	class: 'work',
+	callback:renderTask
 }, {
 	index: 2,
-	text: '任务',
-	class: 'reward'
+	text: '悬赏',
+	class: 'reward',
+	callback:renderReward
 }, {
 	index: 3,
-	text: '任务',
-	class: 'my'
+	text: '我',
+	class: 'my',
+	callback:renderMyCenter
 }];
 
 let task = [{
@@ -48,4 +52,14 @@ let task = [{
 }]
 
 
-render(<Index menu={menu} />, document.getElementById('root'))
+render(<Index menu={menu} />, document.getElementById('root'));
+
+function renderTask(){
+	return <Task task={task}/>
+}
+function renderReward(){
+	return 'Reward'
+}
+function renderMyCenter(){
+	return 'My Center'
+}

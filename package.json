@@ -5,7 +5,7 @@
 	"main": "main.js",
 	"scripts": {
 		"build": "webpack --progress",
-		"start": "webpack-dev-server --host 192.168.0.88 --progress"
+		"start": "webpack-dev-server --host 192.168.1.106 --progress"
 	},
 	"author": "abel",
 	"license": "ISC",
@@ -25,6 +25,7 @@
 		"react-dom": "^15.6.1",
 		"react-transform-hmr": "^1.0.4",
 		"style-loader": "^0.18.2",
-		"webpack-dev-server": "^2.5.1"
+		"webpack-dev-server": "^2.5.1",
+		"wepack": "0.0.1"
 	}
 }

@@ -6,11 +6,12 @@ li{list-style: none;}
 .m-continer > div{width:100%;}
 .m-header{
 	box-sizing: border-box;
-	border-top:1px solid #43d6a1;
 	height: 78px;
 	background-color: #43d6a1;
 	box-shadow: 0 3px 3px #e1e1e1;
 	position: fixed;
+    top: 0;
+    z-index: 1000;
 }
 .m-search{
     width: 100%;
@@ -37,15 +38,16 @@ li{list-style: none;}
 	-moz-background-size:100% 100%;
 	cursor: pointer;
 }
-.m-c-content{background-color: #fafafa;margin: 77px 0 50px;border-top:1px solid #fafafa; min-height: calc(100% - 128px);}
+.m-c-content{background-color: #fafafa;margin-top: 77px;border-top:1px solid #fafafa; min-height: calc(100% - 128px);}
 .c-content{overflow-y: auto;padding: 0 0 10px;}
-
+.ft-space{height: 50px;}
 .m-ft-menu{
 	position: fixed;
 	bottom: 0;
 	height: 50px;
 	background-color: #fff;
 	box-shadow: 0 -2px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
 }
 .u-menu{display: flex;height: 100%;width: 100%;}
 .u-menu li{
