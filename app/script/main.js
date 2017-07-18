@@ -4,21 +4,25 @@ import {
 } from 'react-dom';
 import Index from './Index';
 import Task from './Task';
+import UserCenter from './UserCenter';
 let menu = [{
 	index: 1,
 	text: '任务',
 	class: 'work',
-	callback:renderTask
+	hasSearch: true,
+	callback: renderTask
 }, {
 	index: 2,
 	text: '悬赏',
 	class: 'reward',
-	callback:renderReward
+	hasSearch: false,
+	callback: renderReward
 }, {
 	index: 3,
 	text: '我',
 	class: 'my',
-	callback:renderMyCenter
+	hasSearch: false,
+	callback: renderMyCenter
 }];
 
 let task = [{
@@ -51,15 +55,26 @@ let task = [{
 	point: 90
 }]
 
+let user = {
+	name: 'Abel',
+	img: '../imgs/Abel.jpg',
+	level: 4,
+	tasks: 45,
+	point: 2580,
+	rate: 4.95
+}
+
 
 render(<Index menu={menu} />, document.getElementById('root'));
 
-function renderTask(){
+function renderTask() {
 	return <Task task={task}/>
 }
-function renderReward(){
+
+function renderReward() {
 	return 'Reward'
 }
-function renderMyCenter(){
-	return 'My Center'
+
+function renderMyCenter() {
+	return <UserCenter user={user} />
 }

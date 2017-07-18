@@ -1,6 +1,7 @@
 import React, {
 	Component
 } from 'react'
+import Search from './Search'
 import '../css/index.css'
 
 class Index extends Component {
@@ -8,8 +9,8 @@ class Index extends Component {
 		super()
 		this.setCurrent = this.setCurrent.bind(this);
 		this.state = {
-			content:'',
-			curLi: 0,
+			content: '',
+			curObj: null,
 			menu: []
 		}
 	}
@@ -21,8 +22,8 @@ class Index extends Component {
 	setCurrent(obj) {
 		if (obj) {
 			this.setState({
-				curLi: obj.index,
-				content:obj.callback()
+				curObj: obj,
+				content: obj.callback()
 			})
 		}
 	}
@@ -30,14 +31,16 @@ class Index extends Component {
 		return (
 			<div className="m-continer">
 				<div id="m_header" className="m-header">
-					<div className="m-search">
-						<input type="text" className="u-sec-txt" />
-						<span className="u-sec-btn"></span>
-					</div>
+					{
+						!this.state.curObj || !this.state.curObj.hasSearch ? '' :
+						(
+							<Search />
+						)
+					}		
 				</div>
 				<div id="m_content" className="m-c-content">{this.state.content}</div>
 				<div className="ft-space"></div>
-				<Menu menu={this.state.menu} current={this.state.curLi} setCurrent={this.setCurrent}/>
+				<Menu menu={this.state.menu} current={this.state.curObj} setCurrent={this.setCurrent}/>
 			</div>
 		)
 	}
@@ -51,14 +54,14 @@ class Menu extends Component {
 	}
 	render() {
 		let muLi = this.props.menu;
-		let curLi = this.props.current;
+		let curObj = this.props.current;
 		return (
 			<div id="m_menu" className="m-ft-menu">
 			<ul className="u-menu">
 				{
 					!muLi? '' :(
 						muLi.map((item)=>{
-							return <li onClick={()=>{this.setCurrent(item);}} key={item.index}><span className={item.class + (item.index == curLi ? ' active' : '')}>{item.text}</span></li>
+							return <li onClick={()=>{this.setCurrent(item);}} key={item.index}><span className={item.class + (item == curObj ? ' active' : '')}>{item.text}</span></li>
 						})
 					)
 				}

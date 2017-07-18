@@ -21,7 +21,7 @@ module.exports = {
 			}
 		}, {
 			test: /\.(png|jpg|jpeg|gif|woff)$/,
-			loader: 'file-loader',
+			loader: 'file-loader'
 		}]
 	},
 	plugins: [

@@ -4,25 +4,25 @@ import React, {
 import '../css/task.css'
 
 class Task extends Component {
-	constructor(){
+	constructor() {
 		super();
-		this.state={
-			task:[]
+		this.state = {
+			task: []
 		}
 	}
 
-	componentWillMount(){
+	componentWillMount() {
 		this.setState({
-			task:(!this || !this.props.task) ? [] : this.props.task
+			task: (!this || !this.props.task) ? [] : this.props.task
 		})
 	}
 
 	render() {
-		return(
+		return (
 			<div className="c-content">
 				{
 					this.state.task.map((item)=>{
-						return <TaskItem task={item}/>
+						return <TaskItem key={item.index} task={item}/>
 					})
 				}
 			</div>
@@ -30,10 +30,10 @@ class Task extends Component {
 	}
 }
 
-class TaskItem extends Component{
-	render(){
+class TaskItem extends Component {
+	render() {
 		let tk = this.props.task;
-		return !tk ? '' :(
+		return !tk ? '' : (
 			<div className="u-box">
 				<span className="own"><img src={require('../imgs/'+tk.from+'.jpg')} className="pic" /><span className="name">{tk.from}</span></span>
 				<span className="tit">{tk.title}</span>
